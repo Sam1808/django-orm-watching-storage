@@ -1,5 +1,5 @@
 from django.db import models
-
+from django.utils import timezone
 
 class Passcard(models.Model):
     is_active = models.BooleanField(default=False)
@@ -25,3 +25,26 @@ class Visit(models.Model):
             entered=self.entered_at,
             leaved= "leaved at " + str(self.leaved_at) if self.leaved_at else "not leaved"
         )
+    def get_duration(visit):
+        if visit.leaved_at == None:
+            current_time = timezone.now()
+            total_time = current_time - visit.entered_at
+            return total_time
+        total_time = visit.leaved_at - visit.entered_at
+        return total_time
+
+    def format_duration(duration):
+        duration = duration.total_seconds() / 3600
+        hours = int(duration)
+        minutes = int((duration - hours) * 60)
+        if minutes < 10:
+            minutes = '0'+str(minutes)
+        formated_duration = f'{hours} hours {minutes} minutes'
+        return formated_duration
+
+    def is_visit_long(visit, minutes=60):
+        visit_time = Visit.get_duration(visit)
+        visit_time = visit_time.total_seconds() /60
+        if visit_time >= minutes:
+            return True
+        return False
