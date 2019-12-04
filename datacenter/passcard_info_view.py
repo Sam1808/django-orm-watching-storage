@@ -5,7 +5,6 @@ from django.shortcuts import render
 
 def passcard_info_view(request, passcode):
     passcard = Passcard.objects.get(passcode = passcode)
-    # Программируем здесь
     all_visits = Visit.objects.filter(passcard=passcard)
 
     this_passcard_visits = []
@@ -18,8 +17,6 @@ def passcard_info_view(request, passcode):
         visit_description.update({"is_strange": Visit.is_visit_long(visit)})
 
         this_passcard_visits.append(visit_description)
-
-
 
     context = {
         "passcard": passcard,
