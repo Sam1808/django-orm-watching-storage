@@ -1,0 +1,10 @@
+
+datacenter/__pycache__/__init__.cpython-36.pyc
+datacenter/__pycache__/active_passcards_view.cpython-36.pyc
+datacenter/__pycache__/models.cpython-36.pyc
+datacenter/__pycache__/passcard_info_view.cpython-36.pyc
+datacenter/__pycache__/storage_information_view.cpython-36.pyc
+datacenter/migrations/__pycache__/__init__.cpython-36.pyc
+project/__pycache__/settings.cpython-36.pyc
+project/__pycache__/urls.cpython-36.pyc
+project/settings.py
