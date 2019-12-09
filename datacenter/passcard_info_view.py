@@ -10,11 +10,12 @@ def passcard_info_view(request, passcode):
     this_passcard_visits = []
 
     for visit in all_visits:
-        visit_description = {}
-        visit_description.update({"entered_at": visit.entered_at})
         visit_duration = Visit.get_duration(visit)
-        visit_description.update({"duration": Visit.format_duration(visit_duration)})
-        visit_description.update({"is_strange": Visit.is_visit_long(visit)})
+        visit_description = {
+            "entered_at": visit.entered_at,
+            "duration": Visit.format_duration(visit_duration),
+            "is_strange": Visit.is_visit_long(visit),
+        }
 
         this_passcard_visits.append(visit_description)
 

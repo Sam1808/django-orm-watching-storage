@@ -8,11 +8,13 @@ def storage_information_view(request):
     non_closed_visits= []
 
     for visitor in not_leaved_visitor_list:
-        visit_description = {}
-        visit_description.update({"who_entered": visitor.passcard})
-        visit_description.update({"entered_at": visitor.entered_at})
         total_time = Visit.get_duration(visitor)
-        visit_description.update({"duration": Visit.format_duration(total_time)})
+        visit_description = {
+            "who_entered": visitor.passcard,
+            "entered_at": visitor.entered_at,
+            "duration": Visit.format_duration(total_time),
+        }
+
         non_closed_visits.append(visit_description)
 
     context = {
