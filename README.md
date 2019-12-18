@@ -45,11 +45,11 @@ python для разворачивания проекта.
 Создайте текстовый файл **.env** в папке **project** и заполните его следующим образом:
 
 ```
-HOST="hostname" # имя узла к которому будет обращаться settings.py
-PORT="5434" # соответствующий номер порта
-NAME="databasename" #  имя базы данных
-USER_NAME="username"# имя пользователя
-PASSWORD="userpassword" # пароль пользователя
+DB_HOST="hostname" # имя узла к которому будет обращаться settings.py
+DB_PORT="5434" # соответствующий номер порта
+DB_NAME="databasename" #  имя базы данных
+DB_USER_NAME="username" # имя пользователя
+DB_PASSWORD="userpassword" # пароль пользователя
 SECRET_KEY='REPLACE_ME' # секретный ключ
 DEBUG=1 # debag-статус, где значение 1 это True, а значение 0 это False
 ```
