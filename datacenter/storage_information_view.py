@@ -1,4 +1,4 @@
-from datacenter.models import Visit
+from datacenter.models import Visit, format_duration
 from django.shortcuts import render
 
 
@@ -8,10 +8,11 @@ def storage_information_view(request):
     non_closed_visits= []
 
     for visit in not_leaved_visit_journal:
+        duration = visit.get_duration()
         visit_description = {
             "who_entered": visit.passcard,
             "entered_at": visit.entered_at,
-            "duration": visit.format_duration(),
+            "duration": format_duration(duration),
         }
 
         non_closed_visits.append(visit_description)

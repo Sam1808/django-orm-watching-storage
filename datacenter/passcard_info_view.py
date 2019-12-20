@@ -1,5 +1,5 @@
 from datacenter.models import Passcard
-from datacenter.models import Visit
+from datacenter.models import Visit,format_duration
 from django.shortcuts import render
 
 
@@ -10,9 +10,10 @@ def passcard_info_view(request, passcode):
     this_passcard_visits = []
 
     for visit in all_visits:
+        duration = visit.get_duration()
         visit_description = {
             "entered_at": visit.entered_at,
-            "duration": visit.format_duration(),
+            "duration": format_duration(duration),
             "is_strange": visit.is_visit_long(),
         }
 
