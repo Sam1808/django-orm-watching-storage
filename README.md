@@ -51,7 +51,7 @@ DB_NAME="databasename" #  имя базы данных
 DB_USER_NAME="username" # имя пользователя
 DB_PASSWORD="userpassword" # пароль пользователя
 SECRET_KEY='REPLACE_ME' # секретный ключ
-DEBUG=1 # debag-статус, где значение 1 это True, а значение 0 это False
+DEBUG=1 # debug-статус, где значение 1 это True, а значение 0 это False
 ```
 
 Скрипт запускается из консоли с помощью командной строки.
